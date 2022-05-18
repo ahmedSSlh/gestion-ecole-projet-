@@ -21,11 +21,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+            
+                <img src="{{asset('images/Ens.png')}}" alt="ENS" style="width: 20%;border-radius:10px;margin-right: 40px;height: 80px;margin-left: 31px;opacity: .7;">
+                <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                </a>
+                </a> -->
+            
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,40 +56,33 @@
                             @endif
                         @else
                             @if(Auth::user()->userable->getRole()['role_code'] == 'admin')
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Actions
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('etudiant.create.form') }}">Creation Etudiant</a>
-                                    <a class="dropdown-item" href="{{ route('professeur.create.form') }}">Creation Professeur</a>
-                                    <a class="dropdown-item" href="{{ route('seance.create.form') }}">Creation Seance</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('etudiant.index.form') }}">List Etudiant</a>
-                                    <a class="dropdown-item" href="{{ route('professeur.index.form') }}">List Professeur</a>
-                                    <a class="dropdown-item" href="{{ route('seance.index.form') }}">List Seances</a>
-                                    </div>
-                                </li>
+                                
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
+                                <ul class="navbar-nav">
+                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('etudiant.create.form') }}">Creation Etudiant</a>
+                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('professeur.create.form') }}">Creation Professeur</a>
+                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('seance.create.form') }}">Creation Seance</a>
+                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('etudiant.index.form') }}">List Etudiant</a>
+                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('professeur.index.form') }}">List Professeur</a>
+                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('seance.index.form') }}">List Seances</a>
+                                </ul>
+                            </div>
+                                
                             @endif
                             @if(Auth::user()->userable->getRole()['role_code'] == 'etudiant')
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Actions
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('etudiant.seance.list') }}">Mes seances</a>
-                                    </div>
-                                </li>
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
+                                <ul class="navbar-nav">
+                                        <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('etudiant.seance.list') }}">Mes seances</a>
+                                </ul>
+                            </div>
                             @endif
                             @if(Auth::user()->userable->getRole()['role_code'] == 'professeur')
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Actions
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('ajouter.note') }}">Ajouter Notes</a>
-                                    </div>
-                                </li>
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
+                                <ul class="navbar-nav">
+                                        <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('ajouter.note') }}">Ajouter Notes</a>
+                                </ul>
+                            </div>
+                                
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -116,4 +112,5 @@
         </main>
     </div>
 </body>
+
 </html>
