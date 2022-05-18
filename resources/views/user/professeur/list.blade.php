@@ -25,6 +25,7 @@
       <th scope="col">Telephone</th>
       <th scope="col">Email</th>
       <th scope="col">Date affectation</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>

@@ -27,6 +27,7 @@
       <th scope="col">Date inscription</th>
       <th scope="col">Groupe</th>
       <th scope="col">Filiere</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
