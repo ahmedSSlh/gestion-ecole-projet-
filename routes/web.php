@@ -3,6 +3,7 @@
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\SeanceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|Jamal/othmane
+|Jamal/othmane/ahmed
 */
 
 // Route::get('/', function () {
@@ -34,6 +35,7 @@ Route::get('/etudiant-seance-list', [EtudiantController::class, 'seanceList'])->
 
 Route::get('/create-professeur', [ProfesseurController::class, 'create'])->name('professeur.create.form')->middleware('auth')->middleware('isadmin');
 Route::post('/store-professeur', [ProfesseurController::class, 'store'])->name('professeur.store.form')->middleware('auth')->middleware('isadmin');
+Route::get('/list-professeur', [ProfesseurController::class, 'index'])->name('professeur.index.form')->middleware('auth')->middleware('isadmin');
 Route::get('/create-ajouter-note', [ProfesseurController::class, 'ajouterNote'])->name('create.ajouter.note')->middleware('auth')->middleware('isprofesseur');
 Route::post('/ajouter-note', [ProfesseurController::class, 'ajouterNote'])->name('ajouter.note')->middleware('auth')->middleware('isprofesseur');
 
@@ -43,3 +45,5 @@ Route::get('/index-seance', [SeanceController::class, 'index'])->name('seance.in
 Route::get('/create-add-etudiants-seance/{seance}', [SeanceController::class, 'createAddEtudiantSeance'])->name('create.add.etudiants.seance')->middleware('auth')->middleware('isadmin');
 Route::post('/add-etudiants-seance', [SeanceController::class, 'addEtudiantSeance'])->name('add.etudiants.seance')->middleware('auth')->middleware('isadmin');
 
+/*** Delete******/
+Route::delete('/click_delete/{user}',[UserController::class, 'destroy'])->name('user.delete');

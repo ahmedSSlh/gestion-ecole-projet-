@@ -5,7 +5,7 @@
 @section('content')
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">List Etudiants</h4>
+    <h4 class="card-title">List Professeur</h4>
   </div>
 </div>
 @if (\Session::has('success'))
@@ -24,25 +24,21 @@
       <th scope="col">CIN</th>
       <th scope="col">Telephone</th>
       <th scope="col">Email</th>
-      <th scope="col">Date inscription</th>
-      <th scope="col">Groupe</th>
-      <th scope="col">Filiere</th>
+      <th scope="col">Date affectation</th>
     </tr>
   </thead>
   <tbody>
-  @foreach ($etudiants as $etudiant)
+  @foreach ($professeurs as $professeur)
     <tr>
       <th scope="row">*</th>
-      <td>{{$etudiant->user['name']}}</td>
-      <td>{{$etudiant->user['prenom']}}</td>
-      <td>{{$etudiant->user['cin']}}</td>
-      <td>{{$etudiant->user['telephone']}}</td>
-      <td>{{$etudiant->user['email']}}</td>
-      <td>{{$etudiant->date_inscription}}</td>
-      <td>{{$etudiant->groupe->libelle}}</td>
-      <td>{{$etudiant->filiere->libelle}}</td>
+      <td>{{$professeur->user['name']}}</td>
+      <td>{{$professeur->user['prenom']}}</td>
+      <td>{{$professeur->user['cin']}}</td>
+      <td>{{$professeur->user['telephone']}}</td>
+      <td>{{$professeur->user['email']}}</td>
+      <td>{{$professeur->date_affectation}}</td>
       <td>
-        <form action="{{ route('user.delete', $etudiant->user['id']) }}" method="POST">
+        <form action="{{ route('user.delete', $professeur->user['id']) }}" method="POST">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-outline-danger">Delete</button>

@@ -19,6 +19,8 @@ class ProfesseurController extends Controller
     public function index()
     {
         //
+        $professeurs = Professeur::all();
+        return view('user.professeur.list', compact('professeurs'));
     }
 
     /**
@@ -99,7 +101,7 @@ class ProfesseurController extends Controller
      */
     public function destroy(Professeur $professeur)
     {
-        //
+       
     }
 
     public function createAjouterNote()

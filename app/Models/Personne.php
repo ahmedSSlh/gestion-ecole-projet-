@@ -61,6 +61,7 @@ abstract class Personne extends Model
     {
         return [
             'name' => 'required|max:10',
+            'prenom' => 'required|max:10',
             'cin' => 'required',
             'password' => 'required',
             'email' => 'required|email|unique:users',
