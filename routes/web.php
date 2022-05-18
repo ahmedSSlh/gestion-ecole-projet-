@@ -47,3 +47,5 @@ Route::post('/add-etudiants-seance', [SeanceController::class, 'addEtudiantSeanc
 
 /*** Delete******/
 Route::delete('/click_delete/{user}',[UserController::class, 'destroy'])->name('user.delete');
+/***recherche****/ 
+Route::get('/search', [UserController::class, 'search'])->name('user.search');

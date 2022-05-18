@@ -93,6 +93,30 @@ class UserController extends Controller
         return redirect()->back()->with('success',$user_type .' supprimer');
     }
 
+    public function search()
+    {
+        $cin = trim($_GET['cin']);
+        $user = User::where('cin', $cin)->first();
+
+        if($user == null) return view('user.not_found');
+
+
+        $user_code = $user->userable->getRole()['role_code'];
+        
+
+        $userable = [$user->userable];
+
+
+        if($user_code == "etudiant")
+        {
+            $etudiants = $userable;
+            return view('user.etudiant.list', compact('etudiants'));
+        }
+
+        $professeurs = $userable;
+        return view('user.professeur.list', compact('professeurs'));
+
+    }
 
 
 }

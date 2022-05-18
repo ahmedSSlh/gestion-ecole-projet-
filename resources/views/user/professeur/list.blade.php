@@ -7,6 +7,10 @@
   <div class="card-body">
     <h4 class="card-title">List Professeur</h4>
   </div>
+  <form class="form-inline my-2 my-lg-0" type="GET" action="{{ url('/search')}}">
+    <input class="from-control mr-sm-2" name="cin" type="Recherche" placeholder="Recherche" aria-label="Recherche professeur">
+    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Recherche</button>
+  </form>
 </div>
 @if (\Session::has('success'))
     <div class="alert alert-success">
