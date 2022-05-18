@@ -35,8 +35,8 @@ class EtudiantSeeder extends Seeder
         
     
         Etudiant::create([
-            "name" => "HAROUCH",
-            'prenom' => 'OHTMANE',
+            "name" => "HAROCH",
+            'prenom' => 'OTHMANE',
             "cin" => "A5252",
             "password" => Hash::make('123456789'),
             "email" => "harouch@gmail.com",
