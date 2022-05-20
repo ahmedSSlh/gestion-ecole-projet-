@@ -15,9 +15,9 @@ class Admin extends Personne
         $this->setRole('Administrateur', 'admin');
     }
 
-    public static function validationRules()
+    public static function validationRules(User $user = null)
     {
 
-        return parent::personneValidationRules();
+        return parent::personneValidationRules($user);
     }
 }

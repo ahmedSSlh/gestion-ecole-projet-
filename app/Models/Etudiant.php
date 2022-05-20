@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,7 +55,17 @@ class Etudiant extends Personne
         $this->hasMany(Note::class);
     }
 
-    public static function validationRules()
+    public function getDateInscriptionAttribute($value)
+    {
+        return Carbon::parse($value)->format('Y-m-d\TH:i');
+    }
+
+    public function setDateInscriptionAttribute()
+    {
+        $this->date_inscription = Carbon::parse($this->value)->format('Y-m-d H:i:s');
+    }
+
+    public static function validationRules(User $user = null)
     {
         $etudiant_validation = [
             'cne' => 'required|max:6',
@@ -65,7 +76,7 @@ class Etudiant extends Personne
             'module_id' => 'required'
         ];
 
-        return array_merge(parent::personneValidationRules(), $etudiant_validation);
+        return array_merge(parent::personneValidationRules($user), $etudiant_validation);
     }
 
 }

@@ -98,7 +98,17 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        // $etudiant = Etudiant::find($etudiant);
+        // $etudiant->name = $request->input('name');
+        // $etudiant->prenom = $request->input('prenom');
+        // $etudiant->cin = $request->input('cin');
+        // $etudiant->telephone = $request->input('telephone');
+        // $etudiant->email = $request->input('email');
+        // $etudiant->date_inscription = $request->input('date_inscription');
+        // $etudiant->groupe->libelle = $request->input('groupe->libelle');
+        // $etudiant->filiere->libelle = $request->input('filiere->libelle');
+        // $etudiant->update();
+        // return redirect()->back()->with('status','Etudiant Updated Successfully');
     }
 
     /**

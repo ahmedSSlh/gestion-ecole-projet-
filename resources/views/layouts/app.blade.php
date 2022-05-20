@@ -24,9 +24,9 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
             
-                <img src="{{asset('images/Ens1.png')}}"  alt="ENS" style="margin-bottom: 12px;width: 20%;border-radius:10px;margin-right: 40px;height: 80px;margin-left: 31px;opacity: .7;">
+                {{-- <img src="{{asset('images/Ens1.png')}}"  alt="ENS" style="margin-bottom: 12px;width: 20%;border-radius:10px;margin-right: 40px;height: 80px;margin-left: 31px;opacity: .7;">
                 
-                 <a class="navbar-brand" href="{{ url('/') }}" style="position: absolute;margin-top: 90px;margin-left: 56px;">{{ config('app.name', 'Laravel') }}</a> 
+                 <a class="navbar-brand" href="{{ url('/') }}" style="position: absolute;margin-top: 90px;margin-left: 56px;">{{ config('app.name', 'Laravel') }}</a>  --}}
             
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -52,6 +52,12 @@
           @method('delete')
           <button type="submit" class="btn btn-outline-danger">Delete</button>
       </form>
+      <a href="{{ route('user.edit',$etudiant->user['id'])}}" class="btn btn-primary">Edit</a>
+      {{-- <form action="{{ route('user.edit', $etudiant->user['id']) }}" method="POST">
+        @csrf
+        @method('post')
+        <button type="submit" class="btn btn-outline-primary">update</button>
+    </form> --}}
       </td>
     </tr>
   @endforeach

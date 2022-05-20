@@ -38,6 +38,7 @@ abstract class Personne extends Model
         return $model;
     }
 
+
     //Overriding the delete method
     public function delete()
     {
@@ -57,14 +58,14 @@ abstract class Personne extends Model
         return $this->morphOne(User::class, 'userable');
     }
 
-    public static function personneValidationRules()
+    public static function personneValidationRules(User $user = null)
     {
         return [
             'name' => 'required|max:10',
             'prenom' => 'required|max:10',
             'cin' => 'required',
-            'password' => 'required',
-            'email' => 'required|email|unique:users',
+            'password' => $user != null ? '' : 'required',
+            'email' => $user != null ? 'required|email|unique:users,email,'.$user->id : 'required|email|unique:users' ,
             'telephone' => 'required',
         ];
     }

@@ -49,3 +49,6 @@ Route::post('/add-etudiants-seance', [SeanceController::class, 'addEtudiantSeanc
 Route::delete('/click_delete/{user}',[UserController::class, 'destroy'])->name('user.delete');
 /***recherche****/ 
 Route::get('/search', [UserController::class, 'search'])->name('user.search');
+/****modifie****/
+Route::get('/click_edit/{user}',[UserController::class, 'edit'])->name('user.edit');
+Route::post('/update/{user}',[UserController::class, 'update'])->name('user.update');

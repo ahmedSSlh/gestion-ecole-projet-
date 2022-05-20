@@ -29,12 +29,12 @@ class Professeur extends Personne
         return $this->belongsTo(ElementModule::class);
     }
 
-    public static function validationRules()
+    public static function validationRules(User $user = null)
     {
         $etudiant_validation = [
             'date_affectation' => 'required',
         ];
 
-        return array_merge(parent::personneValidationRules(), $etudiant_validation);
+        return array_merge(parent::personneValidationRules($user), $etudiant_validation);
     }
 }
