@@ -47,6 +47,15 @@
             <label for="quantity">Telephone:</label>
             <input type="text" class="form-control" value="" name="telephone"/>
           </div>
+          <div class="form-group">
+            <label for="filiere">Element Module:</label>
+          <select name="element_module_id" class="form-select" aria-label="Selectioner Element module">
+              <option selected>Selectioner Element Module</option>
+              @foreach ($data['elementModule'] as $element_module)
+                  <option value="{{$element_module['id']}}">{{$element_module['nom_module']}}</option>
+              @endforeach
+          </select>
+        </div>
           <button type="submit" class="btn btn-primary my-5">Enregistrer</button>
       </form>
   </div>

@@ -36,8 +36,10 @@ Route::get('/etudiant-seance-list', [EtudiantController::class, 'seanceList'])->
 Route::get('/create-professeur', [ProfesseurController::class, 'create'])->name('professeur.create.form')->middleware('auth')->middleware('isadmin');
 Route::post('/store-professeur', [ProfesseurController::class, 'store'])->name('professeur.store.form')->middleware('auth')->middleware('isadmin');
 Route::get('/list-professeur', [ProfesseurController::class, 'index'])->name('professeur.index.form')->middleware('auth')->middleware('isadmin');
-Route::get('/create-ajouter-note', [ProfesseurController::class, 'ajouterNote'])->name('create.ajouter.note')->middleware('auth')->middleware('isprofesseur');
-Route::post('/ajouter-note', [ProfesseurController::class, 'ajouterNote'])->name('ajouter.note')->middleware('auth')->middleware('isprofesseur');
+Route::get('/list-etudiant-note', [ProfesseurController::class, 'listEtudiantNote'])->name('list.note.etudiants')->middleware('auth')->middleware('isprofesseur');
+Route::get('/create-ajouter-note/{user}', [ProfesseurController::class, 'createNote'])->name('create.ajouter.note')->middleware('auth')->middleware('isprofesseur');
+
+// Route::post('/ajouter-note', [ProfesseurController::class, 'ajouterNote'])->name('ajouter.note')->middleware('auth')->middleware('isprofesseur');
 
 Route::get('/create-seance', [SeanceController::class, 'create'])->name('seance.create.form')->middleware('auth')->middleware('isadmin');
 Route::post('/store-seance', [SeanceController::class, 'store'])->name('seance.store.form')->middleware('auth')->middleware('isadmin');

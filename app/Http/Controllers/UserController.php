@@ -82,7 +82,7 @@ class UserController extends Controller
             return view('user.etudiant.update', compact('data'));
         }
 
-        $professeurs = $userable;
+        $professeur = $userable;
         return view('user.professeur.update', compact('professeur'));
     }
 

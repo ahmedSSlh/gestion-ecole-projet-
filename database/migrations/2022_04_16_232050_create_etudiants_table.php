@@ -24,7 +24,7 @@ class CreateEtudiantsTable extends Migration
             $table->foreignIdFor(Semestre::class);
             $table->foreignIdFor(Module::class);
             $table->string('cne');
-            $table->datetime('date_inscription');
+            $table->datetime('date_inscription')->useCurrent();
             $table->timestamps();
         });
     }

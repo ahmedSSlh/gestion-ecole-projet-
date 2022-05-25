@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\ElementModule;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfesseursTable extends Migration
+class CreateEtudiantModuleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +13,10 @@ class CreateProfesseursTable extends Migration
      */
     public function up()
     {
-        Schema::create('professeurs', function (Blueprint $table) {
+        Schema::create('etudiant_module', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(ElementModule::class);
-            $table->datetime('date_affectation')->useCurrent();
+            $table->integer('etudiant_id');
+            $table->integer('module_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateProfesseursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('professeurs');
+        Schema::dropIfExists('etudiant_module');
     }
 }

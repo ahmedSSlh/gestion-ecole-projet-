@@ -78,7 +78,7 @@
                             @if(Auth::user()->userable->getRole()['role_code'] == 'professeur')
                             <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
                                 <ul class="navbar-nav">
-                                        <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('ajouter.note') }}">Ajouter Notes</a>
+                                        <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('list.note.etudiants') }}">Ajouter Notes ({{Auth::user()->userable->elementModule->nom_module}})</a>
                                 </ul>
                             </div>
                                 

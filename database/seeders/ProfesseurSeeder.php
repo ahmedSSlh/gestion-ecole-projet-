@@ -26,7 +26,7 @@ class ProfesseurSeeder extends Seeder
                 'password' => Hash::make('123456789')
             ],
             [
-                'date_affectation' => Carbon::now()
+                'element_module_id' => 1
             ]
         );
 
@@ -40,7 +40,7 @@ class ProfesseurSeeder extends Seeder
                 'password' => Hash::make('123456789')
             ],
             [
-                'date_affectation' => Carbon::now()
+                'element_module_id' => 2
             ]
         );
 
@@ -54,20 +54,7 @@ class ProfesseurSeeder extends Seeder
                 'password' => Hash::make('123456789')
             ],
             [
-                'date_affectation' => Carbon::now()
-            ]
-        );
-        Professeur::create(
-            [
-                'name' => 'BARKIA',
-                'prenom' => 'HASSAN',
-                'cin' => 'A14212',
-                "telephone" => "0612325232",
-                'email' => 'barkia@gmail.com',
-                'password' => Hash::make('123456789')
-            ],
-            [
-                'date_affectation' => Carbon::now()
+                'element_module_id' => 3
             ]
         );
     }

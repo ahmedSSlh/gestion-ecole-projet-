@@ -30,5 +30,7 @@ class ElementModuleSeeder extends Seeder
             'module_id' => 3,
             'nom_module' => 'Math'
         ]);
+
+        
     }
 }

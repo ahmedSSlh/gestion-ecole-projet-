@@ -29,6 +29,7 @@
       <th scope="col">Telephone</th>
       <th scope="col">Email</th>
       <th scope="col">Date affectation</th>
+      <th scope="col">Element module</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -42,12 +43,14 @@
       <td>{{$professeur->user['telephone']}}</td>
       <td>{{$professeur->user['email']}}</td>
       <td>{{$professeur->date_affectation}}</td>
+      <td>{{$professeur->elementModule->nom_module}}</td>
       <td>
         <form action="{{ route('user.delete', $professeur->user['id']) }}" method="POST">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-outline-danger">Delete</button>
       </form>
+      <a href="{{ route('user.edit',$professeur->user['id'])}}" class="btn btn-primary">Edit</a>
       </td>
     </tr>
   @endforeach

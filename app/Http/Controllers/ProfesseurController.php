@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ElementModule;
+use App\Models\Filiere;
+use App\Models\Groupe;
+use App\Models\Module;
 use App\Models\Note;
 use App\Models\Professeur;
+use App\Models\Semestre;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +35,8 @@ class ProfesseurController extends Controller
      */
     public function create()
     {
-        return view('user.professeur.create');
+        $data['elementModule'] = ElementModule::all();
+        return view('user.professeur.create', compact('data'));
     }
 
     /**
@@ -109,8 +115,35 @@ class ProfesseurController extends Controller
         // Note::create($request->all());
     }
 
-    public function ajouterNote(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function createNote(User $user)
     {
-        Note::create($request->all());
+        $user_code = $user->userable->getRole()['role_code'];
+        
+
+        $userable = $user->userable;
+
+        if($user_code != "etudiant") return;
+        
+            $etudiant = $userable;
+            $data['etudiant'] = $etudiant;
+            $data['filiere'] = Filiere::all()->toArray();
+            $data['groupe'] = Groupe::all()->toArray();
+            $data['semestre'] = Semestre::all()->toArray();
+            $data['module'] = Module::all()->toArray();
+            
+            return view('user.professeur.note_ajouter', compact('data'));
+        
+    }
+
+    public function listEtudiantNote()
+    {
+        $etudiants = Auth::user()->userable->elementModule->module->etudiants;
+        return view('user.professeur.note_list', compact('etudiants'));
     }
 }
