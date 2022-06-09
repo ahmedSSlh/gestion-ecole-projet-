@@ -16,7 +16,7 @@
       <th scope="col">Date</th>
       <th scope="col">Heur debut</th>
       <th scope="col">Heur fin</th>
-      <th scope="col">--</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>

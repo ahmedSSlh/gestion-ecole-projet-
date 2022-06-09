@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ElementModule;
 use App\Models\Etudiant;
 use App\Models\Filiere;
 use App\Models\Groupe;
 use App\Models\Module;
+use App\Models\Professeur;
 use App\Models\Semestre;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -82,8 +84,9 @@ class UserController extends Controller
             return view('user.etudiant.update', compact('data'));
         }
 
-        $professeur = $userable;
-        return view('user.professeur.update', compact('professeur'));
+        $data['professeur'] = $userable;
+        $data['elementModule'] = ElementModule::all();
+        return view('user.professeur.update', $data);
     }
 
     /**
@@ -112,8 +115,14 @@ class UserController extends Controller
 
         $etudiant = $validationData;
         
-        $etudiants = Etudiant::all();
-        return view('user.etudiant.list', compact('etudiants'));
+        $role = $user->userable->getRole();
+        if($role['role_code'] == 'etudiant'){
+            $etudiants = Etudiant::all();
+            return view('user.etudiant.list', compact('etudiants'));
+        }elseif($role['role_code'] == 'professeur'){
+            $professeurs = Professeur::all();
+            return view('user.professeur.list', compact('professeurs'));
+        }
     }
 
     /**

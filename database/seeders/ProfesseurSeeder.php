@@ -18,11 +18,11 @@ class ProfesseurSeeder extends Seeder
     {
         Professeur::create(
             [
-                'name' => 'Ali',
-                'prenom' => 'Amin',
-                'cin' => 'AP45871',
-                "telephone" => "0612325232",
-                'email' => 'ali@amin.com',
+                'name' => 'MAHMOUDI',
+                'prenom' => 'ABDELHAK',
+                'cin' => 'AP0101',
+                "telephone" => "0601010101",
+                'email' => 'mahmoudi@admin.com',
                 'password' => Hash::make('123456789')
             ],
             [
@@ -34,8 +34,8 @@ class ProfesseurSeeder extends Seeder
             [
                 'name' => 'RAHMOUNI',
                 'prenom' => 'Mohamed',
-                'cin' => 'A1234',
-                "telephone" => "0612325232",
+                'cin' => 'A1001',
+                "telephone" => "0601010101",
                 'email' => 'rahmouni@gmail.com',
                 'password' => Hash::make('123456789')
             ],
@@ -48,8 +48,8 @@ class ProfesseurSeeder extends Seeder
             [
                 'name' => 'BRAHIM',
                 'prenom' => 'LAMHARCHI',
-                'cin' => 'A32632',
-                "telephone" => "0612325232",
+                'cin' => 'A01010',
+                "telephone" => "0601010101",
                 'email' => 'lamharchi@gmail.com',
                 'password' => Hash::make('123456789')
             ],

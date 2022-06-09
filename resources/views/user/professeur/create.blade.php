@@ -51,8 +51,8 @@
             <label for="filiere">Element Module:</label>
           <select name="element_module_id" class="form-select" aria-label="Selectioner Element module">
               <option selected>Selectioner Element Module</option>
-              @foreach ($data['elementModule'] as $element_module)
-                  <option value="{{$element_module['id']}}">{{$element_module['nom_module']}}</option>
+              @foreach ($elementModule as $element_module)
+                  <option value="{{$element_module->id}}">{{$element_module->nom_module}}</option>
               @endforeach
           </select>
         </div>

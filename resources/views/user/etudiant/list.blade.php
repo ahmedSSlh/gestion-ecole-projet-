@@ -47,12 +47,14 @@
       <td>{{$etudiant->groupe->libelle}}</td>
       <td>{{$etudiant->filiere->libelle}}</td>
       <td>
+        <div>
         <form action="{{ route('user.delete', $etudiant->user['id']) }}" method="POST">
           @csrf
           @method('delete')
-          <button type="submit" class="btn btn-outline-danger">Delete</button>
+          <button type="submit" class="btn"><img src="{{asset('images/icons/supprimer.png')}}"  alt="Supprimer" style="width: 20px;"/></button>
       </form>
-      <a href="{{ route('user.edit',$etudiant->user['id'])}}" class="btn btn-primary">Edit</a>
+      <a href="{{ route('user.edit',$etudiant->user['id'])}}" class="btn"><img src="{{asset('images/icons/editer.png')}}"  alt="Modifier" style="width: 20px;"/></a>
+    </div>
       {{-- <form action="{{ route('user.edit', $etudiant->user['id']) }}" method="POST">
         @csrf
         @method('post')

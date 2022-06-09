@@ -5,7 +5,7 @@
 @section('content')
 <div class="card uper">
   <div class="card-header">
-    Creation d'un etudiant
+    Modifier etudiant
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -17,6 +17,8 @@
         </ul>
       </div><br />
     @endif
+    {{-- {{dump($data['etudiant'])}}
+    {{dd($data['filiere'])}} --}}
       <form method="post" action="{{ route('user.update', $data['etudiant']->user['id']) }}">
           <div class="form-group">
               @csrf
@@ -50,36 +52,32 @@
           <div class="form-group">
               <label for="filiere">Filieres:</label>
             <select name="filiere_id" class="form-select" aria-label="Selectioner filiere">
-                <option selected>Selectioner filiere</option>
                 @foreach ($data['filiere'] as $filiere)
-                    <option value="{{$filiere['id']}}">{{$filiere['libelle']}}</option>
+                    <option value="{{$filiere['id']}}" {{ $data['etudiant']->filiere_id == $filiere['id'] ? 'selected' : '' }}>{{$filiere['libelle']}}</option>
                 @endforeach
             </select>
           </div>
           <div class="form-group">
             <label for="groupe">Groupe:</label>
           <select name="groupe_id" class="form-select" aria-label="Selectioner groupe">
-              <option selected>Selectioner Groupe</option>
               @foreach ($data['groupe'] as $groupe)
-                  <option value="{{$groupe['id']}}">{{$groupe['libelle']}}</option>
+                  <option value="{{$groupe['id']}}"  {{ $data['etudiant']->groupe_id == $groupe['id'] ? 'selected' : '' }}>{{$groupe['libelle']}}</option>
               @endforeach
           </select>
         </div>
         <div class="form-group">
             <label for="filiere">Semestre:</label>
           <select name="semestre_id" class="form-select" aria-label="Selectioner semestre">
-              <option selected>Selectioner Semestre</option>
               @foreach ($data['semestre'] as $semestre)
-                  <option value="{{$semestre['id']}}">{{$semestre['libelle']}}</option>
+                  <option value="{{$semestre['id']}}"  {{ $data['etudiant']->semestre_id == $semestre['id'] ? 'selected' : '' }}>{{$semestre['libelle']}}</option>
               @endforeach
           </select>
         </div>
         <div class="form-group">
             <label for="filiere">Module:</label>
           <select name="module_id" class="form-select" aria-label="Selectioner module">
-              <option selected>Selectioner Module</option>
               @foreach ($data['module'] as $module)
-                  <option value="{{$module['id']}}">{{$module['nom_module']}} ({{$module['libelle']}})</option>
+                  <option value="{{$module['id'] }}" {{ $data['etudiant']->module_id == $module['id'] ? 'selected' : '' }}>{{$module['libelle']}}</option>
               @endforeach
           </select>
         </div>

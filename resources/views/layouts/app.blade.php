@@ -21,12 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-blue navbar-dark">
             <div class="container-fluid">
             
-                {{-- <img src="{{asset('images/Ens1.png')}}"  alt="ENS" style="margin-bottom: 12px;width: 20%;border-radius:10px;margin-right: 40px;height: 80px;margin-left: 31px;opacity: .7;">
+               <img src="{{asset('images/img1.png')}}"  alt="ENS" class="imageApp" />
                 
-                 <a class="navbar-brand" href="{{ url('/') }}" style="position: absolute;margin-top: 90px;margin-left: 56px;">{{ config('app.name', 'Laravel') }}</a>  --}}
+               <a class="navbar-brand" style="margin-left: 32px;" href="{{ url('/') }}" >{{ config('app.namee', 'E N S') }}</a>  
             
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -58,12 +58,12 @@
                                 
                             <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
                                 <ul class="navbar-nav">
-                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('etudiant.create.form') }}">Creation Etudiant</a>
-                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('professeur.create.form') }}">Creation Professeur</a>
-                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('seance.create.form') }}">Creation Seance</a>
-                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('etudiant.index.form') }}">List Etudiant</a>
-                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('professeur.index.form') }}">List Professeur</a>
-                                    <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('seance.index.form') }}">List Seances</a>
+                                    <a class="nav-link lienApp"  href="{{ route('etudiant.create.form') }}">Creation Etudiant</a>
+                                    <a class="nav-link lienApp" href="{{ route('professeur.create.form') }}">Creation Professeur</a>
+                                    <a class="nav-link lienApp" href="{{ route('seance.create.form') }}">Creation Seance</a>
+                                    <a class="nav-link lienApp" href="{{ route('etudiant.index.form') }}">List Etudiant</a>
+                                    <a class="nav-link lienApp" href="{{ route('professeur.index.form') }}">List Professeur</a>
+                                    <a class="nav-link lienApp" href="{{ route('seance.index.form') }}">List Seances</a>
                                 </ul>
                             </div>
                                 
@@ -71,14 +71,14 @@
                             @if(Auth::user()->userable->getRole()['role_code'] == 'etudiant')
                             <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
                                 <ul class="navbar-nav">
-                                        <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('etudiant.seance.list') }}">Mes seances</a>
+                                        <a class="nav-link lienApp" class="lienApp" href="{{ route('etudiant.seance.list') }}">Mes seances</a>
                                 </ul>
                             </div>
                             @endif
                             @if(Auth::user()->userable->getRole()['role_code'] == 'professeur')
                             <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
                                 <ul class="navbar-nav">
-                                        <a class="nav-link" style="background: #1c1e20;margin-right: 5px;;border-radius: 10px;" href="{{ route('list.note.etudiants') }}">Ajouter Notes ({{Auth::user()->userable->elementModule->nom_module}})</a>
+                                        <a class="nav-link lienApp" class="lienApp" href="{{ route('create.ajouter.note',Auth::user()->userable->id) }}">Ajouter Notes</a>
                                 </ul>
                             </div>
                                 
@@ -111,5 +111,34 @@
         </main>
     </div>
 </body>
-
+<style>
+    .bg-blue{
+        background-color: #40639f;
+    }
+    .lienApp{
+        margin-right: 30px;
+    border-radius: 0px;
+    color: rgb(253 253 253) !important;
+    border-bottom: 1px solid #565656;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    transition: 0.5s;
+    }
+    .lienApp:hover{
+        border-bottom: 1px solid white;
+    color: #ffefef !important;
+    font-size: 15px;
+    }
+    .imageApp{
+        margin-top: 27px;
+    width: 13%;
+    border-radius: 10px;
+    margin-right: 40px;
+    margin-left: 31px;
+    opacity: 0.7;
+    margin-left: -30px;
+    position: absolute;
+    font-size: 1vw;
+    }
+</style>
 </html>

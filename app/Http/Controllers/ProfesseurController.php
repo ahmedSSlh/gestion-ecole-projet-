@@ -36,7 +36,7 @@ class ProfesseurController extends Controller
     public function create()
     {
         $data['elementModule'] = ElementModule::all();
-        return view('user.professeur.create', compact('data'));
+        return view('user.professeur.create', $data);
     }
 
     /**

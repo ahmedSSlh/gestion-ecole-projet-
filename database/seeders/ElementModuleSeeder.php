@@ -18,17 +18,17 @@ class ElementModuleSeeder extends Seeder
         //
         ElementModule::create([
            'module_id' => 1,
-           'nom_module' => 'SQL'
+           'nom_module' => 'Programmation Orientée Objets'
         ]);
 
         ElementModule::create([
             'module_id' => 1,
-            'nom_module' => 'Web'
+            'nom_module' => 'Reséau informatique et Maintenance'
         ]);
 
         ElementModule::create([
             'module_id' => 3,
-            'nom_module' => 'Math'
+            'nom_module' => 'Applic Pédagogiques Technologies de l Information et Commun'
         ]);
 
         
