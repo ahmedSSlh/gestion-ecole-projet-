@@ -38,6 +38,7 @@ Route::post('/store-professeur', [ProfesseurController::class, 'store'])->name('
 Route::get('/list-professeur', [ProfesseurController::class, 'index'])->name('professeur.index.form')->middleware('auth')->middleware('isadmin');
 Route::get('/list-etudiant-note', [ProfesseurController::class, 'listEtudiantNote'])->name('list.note.etudiants')->middleware('auth')->middleware('isprofesseur');
 Route::get('/create-ajouter-note/{user}', [ProfesseurController::class, 'createNote'])->name('create.ajouter.note')->middleware('auth')->middleware('isprofesseur');
+Route::post('/store-note', [ProfesseurController::class, 'storeNote'])->name('store.note')->middleware('auth')->middleware('isprofesseur');
 
 // Route::post('/ajouter-note', [ProfesseurController::class, 'ajouterNote'])->name('ajouter.note')->middleware('auth')->middleware('isprofesseur');
 

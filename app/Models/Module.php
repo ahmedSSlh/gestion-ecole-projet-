@@ -18,7 +18,7 @@ class Module extends Model
 
     public function etudiants()
     {
-        return $this->belongsToMany(Etudiant::class);
+        return $this->hasMany(Etudiant::class);
     }
 
     public function elementModules()

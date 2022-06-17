@@ -128,14 +128,13 @@ class ProfesseurController extends Controller
 
         $userable = $user->userable;
 
+
         if($user_code != "etudiant") return;
         
             $etudiant = $userable;
             $data['etudiant'] = $etudiant;
-            $data['filiere'] = Filiere::all()->toArray();
-            $data['groupe'] = Groupe::all()->toArray();
-            $data['semestre'] = Semestre::all()->toArray();
-            $data['module'] = Module::all()->toArray();
+            $data['element_module_id'] = Auth::user()->userable->elementModule->id;
+            $data['professeur_id'] = Auth::user()->userable->id;
             
             return view('user.professeur.note_ajouter', compact('data'));
         
@@ -145,5 +144,19 @@ class ProfesseurController extends Controller
     {
         $etudiants = Auth::user()->userable->elementModule->module->etudiants;
         return view('user.professeur.note_list', compact('etudiants'));
+    }
+
+    public function storeNote(Request $request)
+    {
+        $add_note = new Note();
+        $add_note->etudiant_id = $request->etudiant_id;
+        $add_note->element_module_id = $request->element_module_id;
+        $add_note->professeur_id = $request->professeur_id;
+        $add_note->note_matiere =  $request->note;
+
+        $add_note->save();
+
+        return redirect()->back()->with('success','Note a été ajouter!');
+
     }
 }

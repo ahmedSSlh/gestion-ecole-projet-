@@ -78,7 +78,7 @@
                             @if(Auth::user()->userable->getRole()['role_code'] == 'professeur')
                             <div class="collapse navbar-collapse" id="collapsibleNavbar" style="margin-right: 95px;">
                                 <ul class="navbar-nav">
-                                        <a class="nav-link lienApp" class="lienApp" href="{{ route('create.ajouter.note',Auth::user()->userable->id) }}">Ajouter Notes</a>
+                                        <a class="nav-link lienApp" class="lienApp" href="{{ route('list.note.etudiants') }}">List Notes</a>
                                 </ul>
                             </div>
                                 
